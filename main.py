@@ -83,14 +83,10 @@ def install_app(args):
     if "smartdock" in app:
         install_list.append(Smartdock())
     if "microg" in app:
-<<<<<<< HEAD
         var = args.variant
         install_list.append(MicroG(args.android_version, "Standard" if var == '#default' else var))
-=======
-        install_list.append(MicroG(args.android_version, args.microg_variant))
     if "mitm" in app:
         install_list.append(Mitm(args.ca_cert_file))
->>>>>>> claui/mitm
 
     if not container.use_overlayfs():
         copy_dir = "/tmp/waydroid"
@@ -137,14 +133,10 @@ def remove_app(args):
     if "smartdock" in app:
         remove_list.append(Smartdock())
     if "microg" in app:
-<<<<<<< HEAD
         var = args.variant
         remove_list.append(MicroG(args.android_version, "Standard" if var == '#default' else var))
-=======
-        remove_list.append(MicroG(args.android_version, args.microg_variant))
     if "mitm" in app:
         remove_list.append(Mitm())
->>>>>>> claui/mitm
     if "nodataperm" in app:
         remove_list.append(Nodataperm(args.android_version))
     if "hidestatusbar" in app:
