@@ -1,5 +1,4 @@
 # Waydroid Extras Script
-
 Script to add GApps and other stuff to Waydroid!
 
 # Installation/Usage
@@ -7,7 +6,7 @@ Script to add GApps and other stuff to Waydroid!
 ## Interactive terminal interface
 
 ```
-git clone https://github.com/casualsnek/waydroid_script
+git clone https://github.com/burgerzuhsaga/waydroid_script
 cd waydroid_script
 python3 -m venv venv
 venv/bin/pip install -r requirements.txt
@@ -24,20 +23,18 @@ sudo venv/bin/python3 main.py
 
 ## Command Line
 
-```bash
-git clone https://github.com/casualsnek/waydroid_script
-cd waydroid_script
-python3 -m venv venv
-venv/bin/pip install -r requirements.txt
-# install something
-sudo venv/bin/python3 main.py install {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg, mitm}
-# uninstall something
-sudo venv/bin/python3 main.py uninstall {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
-# get Android device ID
-sudo venv/bin/python3 main.py certified
-# some hacks
-sudo venv/bin/python3 main.py hack {nodataperm, hidestatusbar}
-```
+    git clone https://github.com/casualsnek/waydroid_script
+    cd waydroid_script
+    python3 -m venv venv
+    venv/bin/pip install -r requirements.txt
+    # install something
+    sudo venv/bin/python3 main.py install {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg, mitm}
+    # uninstall something
+    sudo venv/bin/python3 main.py uninstall {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
+    # get Android device ID
+    sudo venv/bin/python3 main.py certified
+    # some hacks
+    sudo venv/bin/python3 main.py hack {nodataperm, hidestatusbar}
 
 ## Dependencies
 
@@ -67,7 +64,6 @@ After waydroid has finished booting, open terminal and switch to directory where
 
     sudo python3 main.py google
 Copy the returned numeric ID, then open ["https://google.com/android/uncertified/?pli=1"](https://google.com/android/uncertified/?pli=1). Enter the ID and register it. Wait 10-20 minutes for device to get registered. Then clear Google Play Service's cache and try logging in!
-
 
 ## Install Magisk
 
@@ -166,7 +162,7 @@ chmod 777 -R /mnt/*/*/*/*/Android/obb
 ![](assets/7.png)
 
 ```
-sudo python main.py install microg
+sudo venv/bin/python3 main.py install microg
 ```
 
 ## Hide Status Bar
@@ -183,12 +179,12 @@ sudo venv/bin/python3 main.py hack hidestatusbar
 
 ## Get Android ID for device registration
 
-You need to register you device with its it before being able to use gapps, this will print out your Android ID which you can use for device registration required for Google apps:
+You need to register you device with its it before being able to use gapps, this will print out your Android ID which you can use for device registration required for google apps:
 Open terminal and switch to directory where "main.py" is located then run:
 
     sudo venv/bin/python3 main.py certified
 
-Star this repository if you find this useful, if you encounter problem create an issue on GitHub!
+Star this repository if you find this useful, if you encounter problem create an issue on github !
 
 ## Error handling  
 

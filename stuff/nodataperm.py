@@ -29,7 +29,7 @@ class Nodataperm(General):
         "etc/init/nodataperm.rc",
         "framework/services.jar",
         "framework/services.jar.prof",
-        "framework/services.jar.bprof",
+        "framework/services.jar.bprof"
     ]
 
     def __init__(self, android_version="11") -> None:

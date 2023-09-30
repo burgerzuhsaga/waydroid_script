@@ -17,7 +17,7 @@ from stuff.ndk import Ndk
 from stuff.nodataperm import Nodataperm
 from stuff.smartdock import Smartdock
 from stuff.widevine import Widevine
-import tools.helper as helper
+from tools import helper
 from tools import container
 from tools import images
 
@@ -83,9 +83,14 @@ def install_app(args):
     if "smartdock" in app:
         install_list.append(Smartdock())
     if "microg" in app:
+<<<<<<< HEAD
+        var = args.variant
+        install_list.append(MicroG(args.android_version, "Standard" if var == '#default' else var))
+=======
         install_list.append(MicroG(args.android_version, args.microg_variant))
     if "mitm" in app:
         install_list.append(Mitm(args.ca_cert_file))
+>>>>>>> claui/mitm
 
     if not container.use_overlayfs():
         copy_dir = "/tmp/waydroid"
@@ -132,9 +137,14 @@ def remove_app(args):
     if "smartdock" in app:
         remove_list.append(Smartdock())
     if "microg" in app:
+<<<<<<< HEAD
+        var = args.variant
+        remove_list.append(MicroG(args.android_version, "Standard" if var == '#default' else var))
+=======
         remove_list.append(MicroG(args.android_version, args.microg_variant))
     if "mitm" in app:
         remove_list.append(Mitm())
+>>>>>>> claui/mitm
     if "nodataperm" in app:
         remove_list.append(Nodataperm(args.android_version))
     if "hidestatusbar" in app:
@@ -337,9 +347,18 @@ widevine: Add support for widevine DRM L3
     hack_parser.add_argument(
         'option_name', nargs="+", choices=hack_choices, help='Name of hack option')
     hack_parser.set_defaults(func=hack_option)
+    
+    variant_args=['-i', '--variant']
+    variant_kwargs={
+        'dest': 'variant',
+        'help': 'Specify the variant of installation if supported',
+        'default': '#default'
+    }
+    
+    install_parser.add_argument(*variant_args, **variant_kwargs)
+    remove_parser.add_argument(*variant_args, **variant_kwargs)
 
     args = parser.parse_args()
-    args.microg_variant = "Standard"
     if hasattr(args, 'func'):
         args_dict = vars(args)
         helper.check_root()
